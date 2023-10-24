@@ -1,11 +1,11 @@
 {
-  "name" : "Clean IG Plugin",
+  "name" : "Scrollable Date Plugin",
   "version" : "1.0",
-  "description" : "An Oracle APEX Plug-in to enable users to show / Hide Interactive Grid Toolbar.",
-  "keywords" : ["IG", "APEX-IG", "INTERACTIVE", "GRID", "HIDE", "SHOW"],
-  "homepage" : "https://github.com/rodrigomesquitaorclapex/CleanIG-Plugin",
+  "description" : "An Oracle APEX Plug-in to enable quick choose a date.",
+  "keywords" : ["APEX", "ITEM", "DATEPICKER"],
+  "homepage" : "https://github.com/rodrigomesquitaorclapex/scrollable-date-picker",
   "bugs" : {
-    "url" : "https://github.com/rodrigomesquitaorclapex/CleanIG-Plugin/issues",
+    "url" : "https://github.com/rodrigomesquitaorclapex/scrollable-date-picker/issues",
     "email" : "rodrigomesquita.ti@gmail.com"
   },
   "license" : "MIT",
@@ -16,17 +16,17 @@
   },
   "repository" : {
     "type" : "git",
-    "url" : "https://github.com/rodrigomesquitaorclapex/CleanIG-Plugin.git"
+    "url" : "https://github.com/rodrigomesquitaorclapex/scrollable-date-picker.git"
   },
   "oracle" : {
-    "versions" : ["10.2.04", "11.2.0.1", "12.1.0.1", "12.2.0.1" ],
+    "versions" : ["12.1.0.1","12.2.0.1","18.0.0.0","19.0.0.0","21.0.0.0"],
     "apex" : {
-      "versions" : ["5.1.0", "18.1.0"],
+      "versions" : ["23.1", "23.2"],
       "plugin" : {
-        "internalName" : "CLEAN_IG",
-        "type" : "dynamic action",
-        "demo" : "https://goo.gl/AX2tGA",
-        "previewImage" : "https://raw.githubusercontent.com/rodrigomesquitaorclapex/CleanIG-Plugin/master/plugin_preview.gif"
+        "internalName" : "COM.RODRIGOMESQUITA.SCROLLABLEDATEPICKER",
+        "type" : "ITEM",
+        "demo" : "https://bit.ly/scrollable-date-picker",
+        "previewImage" : "https://raw.githubusercontent.com/rodrigomesquitaorclapex/scrollable-date-picker/master/plugin_preview.gif"
       }
     }
   }
