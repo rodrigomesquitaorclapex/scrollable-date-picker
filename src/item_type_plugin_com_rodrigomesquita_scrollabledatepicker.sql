@@ -33,7 +33,7 @@ prompt APPLICATION 120 - QuickBookMe
 -- Application Export:
 --   Application:     120
 --   Name:            QuickBookMe
---   Date and Time:   19:08 Tuesday October 24, 2023
+--   Date and Time:   20:16 Tuesday October 24, 2023
 --   Exported By:     QUICKBOOKME
 --   Flashback:       0
 --   Export Type:     Component Export
@@ -69,8 +69,8 @@ wwv_flow_imp_shared.create_plugin(
 '    p_param  in            apex_plugin.t_item_render_param,',
 '    p_result in out nocopy apex_plugin.t_item_render_result )',
 'is',
-'l_week_days      p_item.attribute_01%type := p_item.attribute_01;',
-'l_month_names    p_item.attribute_02%type := p_item.attribute_02;',
+'l_week_days      p_plugin.attribute_01%type := p_plugin.attribute_01;',
+'l_month_names    p_plugin.attribute_02%type := p_plugin.attribute_02;',
 '',
 'begin',
 '',
@@ -113,7 +113,7 @@ wwv_flow_imp_shared.create_plugin(
 ,p_subscribe_plugin_settings=>true
 ,p_help_text=>wwv_flow_string.join(wwv_flow_t_varchar2(
 '<p>',
-'  Oracle APEX Item Plugin <STRONG>Scrollable Date Picker.<STRONG>',
+'  Oracle APEX Item Plugin Scrollable Date Picker.',
 '</p>',
 '<p>',
 '  Author: <code>Rodrigo Mesquita</code><br/>',
@@ -123,12 +123,13 @@ wwv_flow_imp_shared.create_plugin(
 '  License: Licensed under the MIT (LICENSE.txt) license.',
 '</p>'))
 ,p_version_identifier=>'1.0'
+,p_about_url=>'https://apexblog.dev/new-oracle-apex-plugin-scrollable-date-picker'
 ,p_files_version=>135
 );
 wwv_flow_imp_shared.create_plugin_attribute(
- p_id=>wwv_flow_imp.id(477639558194745247)
+ p_id=>wwv_flow_imp.id(477646693654884720)
 ,p_plugin_id=>wwv_flow_imp.id(477527662944594475)
-,p_attribute_scope=>'COMPONENT'
+,p_attribute_scope=>'APPLICATION'
 ,p_attribute_sequence=>1
 ,p_display_sequence=>10
 ,p_prompt=>'Week Days'
@@ -137,12 +138,11 @@ wwv_flow_imp_shared.create_plugin_attribute(
 ,p_default_value=>'["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]'
 ,p_supported_component_types=>'APEX_APPLICATION_PAGE_ITEMS'
 ,p_is_translatable=>false
-,p_help_text=>'Provide the week days using the format ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]'
 );
 wwv_flow_imp_shared.create_plugin_attribute(
- p_id=>wwv_flow_imp.id(477612436974433003)
+ p_id=>wwv_flow_imp.id(477648748778890752)
 ,p_plugin_id=>wwv_flow_imp.id(477527662944594475)
-,p_attribute_scope=>'COMPONENT'
+,p_attribute_scope=>'APPLICATION'
 ,p_attribute_sequence=>2
 ,p_display_sequence=>20
 ,p_prompt=>'Month Names'
@@ -150,9 +150,8 @@ wwv_flow_imp_shared.create_plugin_attribute(
 ,p_is_required=>true
 ,p_default_value=>'["JANUARY","FEBRUARY","MARCH","APRIL","MAY","JUNE","JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER"]'
 ,p_supported_component_types=>'APEX_APPLICATION_PAGE_ITEMS'
-,p_is_translatable=>true
+,p_is_translatable=>false
 ,p_text_case=>'UPPER'
-,p_help_text=>'Provide the month names using the format ["JANUARY","FEBRUARY","MARCH","APRIL","MAY","JUNE","JULY","AUGUST","SEPTEMBER","OCTOBER","NOVEMBER","DECEMBER"]'
 );
 wwv_flow_imp_shared.create_plugin_event(
  p_id=>wwv_flow_imp.id(477604960478808999)
