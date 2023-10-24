@@ -1,0 +1,79 @@
+.sd-date-selector {
+    height: 25vh;
+    text-align: center;
+}
+
+ul#sd-calendar {
+    cursor: grab;
+}
+
+.scrollable-datepicker {
+    color: black;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE 10+ */
+}
+
+.scrollable-datepicker::-webkit-scrollbar { /* WebKit */
+    width: 0;
+    height: 0;
+}
+
+.scrollable-datepicker ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.scrollable-datepicker ul li {
+    display: inline-block;
+    border-radius: 50%;
+    text-align: center;
+    padding: 12px 0;
+    font-size: 14px;
+    margin: 10px;
+}
+
+.sd-dayNum.sd-active {
+    background: #ee4141;
+    color: #ffffff;
+    font-weight: bold;
+}
+.sd-dayNum {
+    display: block;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.sd-monthPicker {
+    position: relative;
+    padding-top: 15px;
+}
+
+.sd-monthName {
+    color: black;
+}
+
+.disabledPicker {
+    opacity: 0.6;
+}
+
+.sd-weekday {
+    font-size: 9px;
+    color: #888888;
+}
+.sd-weekDay.sd-active {
+    color: #445FD2;
+    font-weight:bold;
+}  
+
+.sd-dt-selector {
+    padding: 2px;
+    cursor: pointer;
+    margin: 0px 25px 0px 25px;
+}
