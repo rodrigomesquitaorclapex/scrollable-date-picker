@@ -9,9 +9,9 @@ Import *item_type_plugin_com_rodrigomesquita_scrollabledatepicker.sql* file into
 2. Choose *Scrollable Date Picker [Plugin]* as an item type
 
 ## Preview ##
-coming soon
+![Preview](plugin_preview.gif)
 
 ## Demo ##
-coming soon
+https://bit.ly/scrollable-date-picker
 
 
