@@ -24,7 +24,7 @@
       "versions" : ["23.1", "23.2"],
       "plugin" : {
         "internalName" : "COM.RODRIGOMESQUITA.SCROLLABLEDATEPICKER",
-        "type" : "ITEM",
+        "type" : "item",
         "demo" : "https://bit.ly/scrollable-date-picker",
         "previewImage" : "https://raw.githubusercontent.com/rodrigomesquitaorclapex/scrollable-date-picker/master/plugin_preview.gif"
       }
