@@ -1,25 +1,17 @@
-# Oracle APEX Dynamic Action Plugin - CleanID
-This plugin enables to show / Hide Interactive Grid Toolbar.
+# Oracle APEX Scrollable Date Picker Plugin
+This plugin enables to quick choose a date 
 
 ## Installation ##
-Import *dynamic_action_plugin_clean_ig.sql* file into your application.
+Import *item_type_plugin_com_rodrigomesquita_scrollabledatepicker.sql* file into your application.
 
 ## Usage ##
-1. Create a dynamic action with the page load event
-2. Choose *Explorer-CleanIG [Plug-In]* as a true action.
-3. Set your region in Affected Elements group.
-
-if you want to use the plugin for more the one region, just create a new true action and repeat the steps 2 and 3.
-
-## Options ##
-1. Icon: Choose the icon css class for the hide/show button
-2. Hot:  Select whether to use the Normal or Hot button template
-3. Hide on Start: Specify to hide the IG toolbar on start.
+1. Create a page item and select 
+2. Choose *Scrollable Date Picker [Plugin]* as an item type
 
 ## Preview ##
-
-![Preview](plugin_preview.gif)
+coming soon
 
 ## Demo ##
-https://goo.gl/AX2tGA
+coming soon
+
 
