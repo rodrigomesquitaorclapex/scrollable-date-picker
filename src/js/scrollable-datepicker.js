@@ -6,7 +6,7 @@ function lPadTo2(number) {
 }
 
 var scrollableDatepicker = {
-    init: function(pItemId, weekDays, monthNames) {
+    init: function(pItemId, weekDays, monthNames, pformatMask) {
         try {
             var aWeekDays = JSON.parse(weekDays);
         } catch (err) {
@@ -96,8 +96,7 @@ var scrollableDatepicker = {
             function daysInMonth(month, year) {
                 return new Date(year, Number(month) + 1, 0).getDate();
             }
-
-            _this.find('#sd-calendar').children().remove();
+            _this.find('#'+pItemId+'_sd-calendar').children().remove();
 
             let currentDay = 0;
             let currentMonth = 0;
@@ -117,10 +116,11 @@ var scrollableDatepicker = {
             currentYear = _this.find('.sd-monthPicker').attr('currentYear');
 
 
-            _this.find('.sd-monthName').html(sdMonthNames[currentMonth] + ', ' + currentYear)
+            _this.find('.sd-monthName').html(sdMonthNames[currentMonth] + ', ' + currentYear);
+
             for (var i = 1; i <= daysInMonth(currentMonth, currentYear); i++) {
                 var date2 = new Date(currentYear, currentMonth, i)
-                var ul = document.getElementById("sd-calendar");
+                var ul = document.getElementById(pItemId+'_sd-calendar');
                 var li = document.createElement("li");
 
                 //Today's date
@@ -167,10 +167,23 @@ var scrollableDatepicker = {
                 _this.find('.scrollable-datepicker li').removeClass('sd-active');
                 _this.find('.sd-dayNum').removeClass("sd-active");
                 _this.find('.sd-weekday').removeClass("sd-active");
-                _this.find(this).addClass('sd-active')
-                _this.find(this).children('.sd-dayNum').addClass('sd-active')
-                _this.find(this).children('.sd-weekday').addClass('sd-active')
-                apex.item(pItemId).setValue(_this.find(this).attr('data-date'));
+                _this.find(this).addClass('sd-active');
+                _this.find(this).children('.sd-dayNum').addClass('sd-active');
+                _this.find(this).children('.sd-weekday').addClass('sd-active');
+                var dataDate = _this.find(this).attr('data-date');
+                var dayDate = moment(dataDate,'DD/MM/YYYY');
+                try {
+                     var dateFormatted = moment(dayDate).format(pformatMask)
+                    } catch (err) {
+                        apex.message.showErrors([{
+                            type: "error",
+                            location: "inline",
+                            pageItem: pItemId,
+                            message: "Invalid format mask: "+pformatMask,
+                            unsafe: false
+                        }]);
+                    }
+                  apex.item(pItemId).setValue(dateFormatted);
                 $('#' + pItemId).trigger('scrollable-datepicker-change');
 
             });
