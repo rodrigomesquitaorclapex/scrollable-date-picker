@@ -33,7 +33,7 @@ prompt APPLICATION 120 - QuickBookMe
 -- Application Export:
 --   Application:     120
 --   Name:            QuickBookMe
---   Date and Time:   09:58 Wednesday October 25, 2023
+--   Date and Time:   10:06 Wednesday October 25, 2023
 --   Exported By:     QUICKBOOKME
 --   Flashback:       0
 --   Export Type:     Component Export
@@ -128,7 +128,7 @@ wwv_flow_imp_shared.create_plugin(
 '  Plugin home page: <code>https://github.com/rodrigomesquitaorclapex/scrollable-date-picker</code>',
 '  License: Licensed under the MIT (LICENSE.txt) license.',
 '</p>'))
-,p_version_identifier=>'1.0'
+,p_version_identifier=>'2.0'
 ,p_about_url=>'https://apexblog.dev/new-oracle-apex-plugin-scrollable-date-picker'
 ,p_files_version=>177
 );
