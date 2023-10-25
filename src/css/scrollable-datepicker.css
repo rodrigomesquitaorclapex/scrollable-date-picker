@@ -66,6 +66,7 @@ ul#sd-calendar {
     font-size: 9px;
     color: #888888;
 }
+
 .sd-weekDay.sd-active {
     color: #445FD2;
     font-weight:bold;
