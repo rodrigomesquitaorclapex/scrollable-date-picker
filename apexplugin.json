@@ -1,6 +1,6 @@
 {
   "name" : "Scrollable Date Picker Plugin",
-  "version" : "1.0",
+  "version" : "2.0",
   "description" : "An Oracle APEX plugin to allow you to quickly choose a date.",
   "keywords" : ["APEX", "ITEM", "DATEPICKER"],
   "homepage" : "https://github.com/rodrigomesquitaorclapex/scrollable-date-picker",
