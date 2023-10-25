@@ -1,5 +1,4 @@
 .sd-date-selector {
-    height: 25vh;
     text-align: center;
 }
 
@@ -36,8 +35,8 @@ ul#sd-calendar {
 }
 
 .sd-dayNum.sd-active {
-    background: #ee4141;
-    color: #ffffff;
+    background-color: var(--ut-component-icon-background-color);
+    color: var(--ut-component-icon-color);
     font-weight: bold;
 }
 .sd-dayNum {
