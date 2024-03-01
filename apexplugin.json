@@ -22,7 +22,7 @@
   "oracle" : {
     "versions" : ["12.1.0.1","12.2.0.1","18.0.0.0","19.0.0.0","21.0.0.0"],
     "apex" : {
-      "versions" : ["23.1", "23.2"],
+      "versions" : ["22.2","23.1", "23.2"],
       "plugin" : {
         "internalName" : "COM.RODRIGOMESQUITA.SCROLLABLEDATEPICKER",
         "type" : "item",
