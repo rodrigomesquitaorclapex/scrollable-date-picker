@@ -1,3 +1,10 @@
+function removeTime(date = new Date()) {
+  return new Date(
+    date.getFullYear(),
+    date.getMonth(),
+    date.getDate()
+  );
+}
 function lPadTo2(number) {
     if (number <= 9) {
         number = ("0" + number).slice(-2);
@@ -10,6 +17,7 @@ var scrollableDatepicker = {
         try {
             var aWeekDays = JSON.parse(weekDays);
         } catch (err) {
+            console.log(weekDays);
             apex.message.clearErrors();
             apex.message.showErrors([{
                 type: "error",
@@ -21,6 +29,7 @@ var scrollableDatepicker = {
         try {
             var aMonthNames = JSON.parse(monthNames);
         } catch (err) {
+            console.log(monthNames);
             apex.message.clearErrors();
             apex.message.showErrors([{
                 type: "error",
@@ -28,7 +37,7 @@ var scrollableDatepicker = {
                 message: "Invalid Month Names, use a valid JSON Array",
                 unsafe: false
             }]);
-                }       
+         }       
 
         var _this = $('#sd_' + pItemId);
         loadDatepicker(_this);
@@ -117,6 +126,7 @@ var scrollableDatepicker = {
 
 
             _this.find('.sd-monthName').html(sdMonthNames[currentMonth] + ', ' + currentYear);
+            
 
             for (var i = 1; i <= daysInMonth(currentMonth, currentYear); i++) {
                 var date2 = new Date(currentYear, currentMonth, i)
@@ -125,10 +135,15 @@ var scrollableDatepicker = {
 
                 //Today's date
                 var bool = (date.toDateString() === date2.toDateString());
+                var disableFuture = (date2 > date);
                 if (bool) {
                     li.classList.add('sd-active')
                 }
                 li.setAttribute('id', date2.getTime() / 1000)
+
+                if (disableFuture) {
+                    li.classList.add('sd-disabled')
+                }
 
                 //Days od the month
                 let dayNum = document.createElement('span');
@@ -151,12 +166,15 @@ var scrollableDatepicker = {
                 li.appendChild(weekDay);
                 li.appendChild(dayNum);
                 var thisMonth = Number(currentMonth) + 1;
-                li.setAttribute('data-date', currentYear + '-' + thisMonth + '-' +  lPadTo2(date2.getDate()));
+                li.setAttribute('data-date', currentYear + '-' + lPadTo2(thisMonth) + '-' +  lPadTo2(date2.getDate()));
                 ul.appendChild(li);
             }
             // scroll to active date
             if (_this.find('.sd-active').length != 0) {
                 var activeScrollPos = _this.find('.sd-active').offset().left + _this.find('.sd-active').outerWidth(true) / 2 + _this.find('.scrollable-datepicker').scrollLeft() - _this.find('.scrollable-datepicker').width() / 2;
+                let todaysDate = removeTime(new Date());
+                let dateFormatted = apex.date.format( todaysDate, pformatMask);
+                apex.item(pItemId).setValue(dateFormatted);
 
                 _this.find('.scrollable-datepicker').animate({
                     scrollLeft: activeScrollPos - 10
@@ -171,8 +189,10 @@ var scrollableDatepicker = {
                 _this.find(this).addClass('sd-active');
                 _this.find(this).children('.sd-dayNum').addClass('sd-active');
                 _this.find(this).children('.sd-weekday').addClass('sd-active');
-                var dataDateString = _this.find(this).attr('data-date');
-                var dataDate = new Date(dataDateString);
+                var dataDateString = _this.find(this).attr('data-date')+'T00:00:00';
+                var date = new Date(dataDateString);
+                var userTimezoneOffset = date.getTimezoneOffset() * 60000;
+                var dataDate = new Date(date.getTime() - userTimezoneOffset);
                 try {
                      var dateFormatted = apex.date.format( dataDate, pformatMask);
                     } catch (err) {
